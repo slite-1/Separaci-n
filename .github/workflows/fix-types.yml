@@ -1,0 +1,15 @@
+name: Install Types
+
+on: push
+
+jobs:
+  install-types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install --save-dev @types/react @types/node
+      - run: git config --global user.name "github-actions[bot]"
+      - run: git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - run: git add .
+      - run: git commit -m "fix: install @types/react and @types/node"
+      - run: git push
